@@ -4,13 +4,13 @@ import 'firebase/auth'; // for authentication
 
 
 const config = {
-    apiKey: "*****",
+    apiKey: "AIzaSyDwGgfIfrAJZ8h556irIGoB6T3P2l7GHHI",
     authDomain: "efa-db.firebaseapp.com",
     databaseURL: "https://efa-db.firebaseio.com",
     projectId: "efa-db",
     storageBucket: "efa-db.appspot.com",
     messagingSenderId: "848006978140",
-    appId: "*****",
+    appId: "1:848006978140:web:d96415196e78529292a499",
     measurementId: "G-DVLP0KM2NR"
 }
 
