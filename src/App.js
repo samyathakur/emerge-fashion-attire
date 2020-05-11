@@ -8,12 +8,16 @@ import './App.css';
 
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import Header from './components/header/header.component';
 
 import {auth, createUserProfileDocument} from './firebase/firebase.utils';
 // importing auth on this page helps us to store state of user through out the project
+
+import {createStructuredSelector} from 'reselect';
+import {selectCurrentUser} from './redux/user/user.selector'
 
 class App extends React.Component {
   
@@ -58,6 +62,7 @@ unsubscribeFromAuth = null;
         <Switch>
           <Route exact path="/" component ={HomePage}/>
           <Route path="/shop" component ={ShopPage}/>
+          <Route exact path="/checkout" component ={CheckoutPage}/>
           <Route 
           exact 
           path="/signin" 
@@ -77,8 +82,8 @@ unsubscribeFromAuth = null;
 
 // allow access to state of user so that after login user cannot access sign in page
 // {user} is destructured from "state" parameter
-const mapStateToProps = ({user}) => ({
-  currentUser : user.currentUser
+const mapStateToProps = createStructuredSelector ({
+  currentUser : selectCurrentUser
 })
 
 //update reducer value with new user action
